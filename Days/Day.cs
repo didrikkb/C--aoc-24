@@ -1,17 +1,13 @@
-interface IDay
-{
+interface IDay {
     string A();
     string B();
 }
 
-class Day
-{
-    public static IDay Get(int n)
-    {
+class Day {
+    public static IDay Get(int n) {
         string data = InputReader.GetInput(n);
 
-        return n switch
-        {
+        return n switch {
             1 => new Day1(data),
             2 => new Day2(data),
             3 => new Day3(data),

@@ -1,9 +1,7 @@
-class Day1(string inputData) : IDay
-{
+class Day1(string inputData) : IDay {
     (int[], int[]) data = Parse(inputData);
 
-    public string A()
-    {
+    public string A() {
         (int[] row1, int[] row2) = data;
 
         Array.Sort(row1);
@@ -16,14 +14,12 @@ class Day1(string inputData) : IDay
             .ToString();
     }
 
-    public string B()
-    {
+    public string B() {
         (int[] row1, int[] row2) = data;
 
         var m = new Dictionary<int, int>();
 
-        foreach (int val in row2)
-        {
+        foreach (int val in row2) {
             m[val] = m.GetValueOrDefault(val) + 1;
         }
 
@@ -33,23 +29,20 @@ class Day1(string inputData) : IDay
             .ToString();
     }
 
-    private static (int[], int[]) Parse(string data)
-    {
+    private static (int[], int[]) Parse(string data) {
         string[] lines = data.Split('\n');
 
         var row1 = new List<int>();
         var row2 = new List<int>();
 
-        foreach (string line in lines)
-        {
+        foreach (string line in lines) {
             int[] nums = line
                 .Split(' ')
                 .Select(e => int.TryParse(e, out int x) ? x : -1)
                 .Where(x => x >= 0)
                 .ToArray();
 
-            if (nums.Length == 2)
-            {
+            if (nums.Length == 2) {
                 row1.Add(nums[0]);
                 row2.Add(nums[1]);
             }

@@ -1,15 +1,11 @@
-class Day2(string inputData) : IDay
-{
+class Day2(string inputData) : IDay {
     private readonly List<List<int>> data = Parse(inputData);
 
-    public string A()
-    {
+    public string A() {
         int res = 0;
 
-        foreach (List<int> nums in data)
-        {
-            if (IsGradual(nums))
-            {
+        foreach (List<int> nums in data) {
+            if (IsGradual(nums)) {
                 res++;
             }
         }
@@ -17,14 +13,11 @@ class Day2(string inputData) : IDay
         return res.ToString();
     }
 
-    public string B()
-    {
+    public string B() {
         int res = 0;
 
-        foreach (List<int> nums in data)
-        {
-            if (IsGradual(nums) || IsGradualDampened(nums))
-            {
+        foreach (List<int> nums in data) {
+            if (IsGradual(nums) || IsGradualDampened(nums)) {
                 res++;
             }
         }
@@ -32,16 +25,13 @@ class Day2(string inputData) : IDay
         return res.ToString();
     }
 
-    private static bool IsGradualDampened(List<int> nums)
-    {
-        for (int i = 0; i < nums.Count; i++)
-        {
+    private static bool IsGradualDampened(List<int> nums) {
+        for (int i = 0; i < nums.Count; i++) {
             int t = nums[i];
 
             nums.RemoveAt(i);
 
-            if (IsGradual(nums))
-            {
+            if (IsGradual(nums)) {
                 return true;
             }
 
@@ -51,35 +41,29 @@ class Day2(string inputData) : IDay
         return false;
     }
 
-    private static bool IsGradual(List<int> nums)
-    {
-        if (nums.Count <= 1)
-        {
+    private static bool IsGradual(List<int> nums) {
+        if (nums.Count <= 1) {
             return true;
         }
 
         bool incr = nums[1] - nums[0] >= 0;
 
-        for (int i = 1; i < nums.Count; i++)
-        {
+        for (int i = 1; i < nums.Count; i++) {
             int diff = nums[i] - nums[i - 1];
             int abs = int.Abs(diff);
 
-            if (diff >= 0 != incr || abs < 1 || abs > 3)
-            {
+            if (diff >= 0 != incr || abs < 1 || abs > 3) {
                 return false;
             }
         }
         return true;
     }
 
-    private static List<List<int>> Parse(string data)
-    {
+    private static List<List<int>> Parse(string data) {
         List<string> lines = data.Split('\n').Where(l => l.Length > 0).ToList();
         var res = new List<List<int>>();
 
-        foreach (string line in lines)
-        {
+        foreach (string line in lines) {
             List<int> temp = line
                 .Split(' ')
                 .Where(x => int.TryParse(x, out int _))
