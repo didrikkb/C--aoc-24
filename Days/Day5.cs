@@ -69,8 +69,7 @@ class Day5(string inputData) : IDay {
     private static int[] FixUpdate(int[] update, int err) {
         if (err == 0) {
             (update[0], update[^1]) = (update[^1], update[0]);
-        }
-        else {
+        } else {
             (update[err - 1], update[err]) = (update[err], update[err - 1]);
         }
         return update;

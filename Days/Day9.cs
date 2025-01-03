@@ -103,8 +103,7 @@ class Day9(string data) : IDay {
             for (int i = 0; i < sector; i++) {
                 if (free) {
                     disk[pos] = -1;
-                }
-                else {
+                } else {
                     disk[pos] = id;
                 }
 

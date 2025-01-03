@@ -19,7 +19,9 @@ class Day {
             9 => new Day9(data),
             10 => new Day10(data),
             11 => new Day11(data),
-
+            12 => new Day12(data),
+            13 => new Day13(data),
+            14 => new Day14(data),
             _ => throw new Exception(),
         };
     }

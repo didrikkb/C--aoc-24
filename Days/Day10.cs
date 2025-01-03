@@ -11,7 +11,6 @@ class Day10(string data) : IDay {
             var d = input.Select(a => a.ToArray()).ToArray();
 
             res += TrailheadScoreA(d, x, y);
-
         }
 
         return res.ToString();
@@ -26,7 +25,6 @@ class Day10(string data) : IDay {
             var d = input.Select(a => a.ToArray()).ToArray();
 
             res += TrailheadScoreB(d, x, y);
-
         }
 
         return res.ToString();
@@ -67,6 +65,7 @@ class Day10(string data) : IDay {
     private static int TrailheadScoreB(int[][] data, int starti, int startj) {
         int res = 0;
         var s = new Stack<(int, int)>();
+
         s.Push((starti, startj));
 
         while (s.Count > 0) {

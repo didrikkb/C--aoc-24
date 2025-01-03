@@ -20,8 +20,7 @@ class Day6(string inputData) : IDay {
             if (state == 1) {
                 Turn();
                 continue;
-            }
-            else if (state == -1) {
+            } else if (state == -1) {
                 break;
             }
 
@@ -49,8 +48,7 @@ class Day6(string inputData) : IDay {
                     if (state == 1) {
                         Turn();
                         continue;
-                    }
-                    else if (state == -1) {
+                    } else if (state == -1) {
                         break;
                     }
 

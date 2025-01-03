@@ -14,7 +14,6 @@ class Day11(string data) : IDay {
         return res.ToString();
     }
 
-
     public string B() {
         var stones = Parse(data);
         long res = 0;
@@ -25,7 +24,6 @@ class Day11(string data) : IDay {
 
         return res.ToString();
     }
-
 
     private long F(long n, int lvl) {
         if (lvl == 0) {
@@ -40,12 +38,10 @@ class Day11(string data) : IDay {
 
         if (n == 0) {
             res = F(n + 1, lvl - 1);
-        }
-        else if (LongCount(n) % 2 == 0) {
+        } else if (LongCount(n) % 2 == 0) {
             (long l, long r) = LongSplit(n);
             res = F(l, lvl - 1) + F(r, lvl - 1);
-        }
-        else {
+        } else {
             res = F(n * 2024, lvl - 1);
         }
 
